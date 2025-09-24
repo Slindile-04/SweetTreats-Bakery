@@ -1,3 +1,91 @@
+.container {
+  max-width: 1200px;  /* keeps it nice on big screens */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== MENU SECTION ===== */
+.menu {
+  background-color: var(--cream-vanilla);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.menu h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: var(--chocolate);
+  margin-bottom: 3rem;
+}
+
+/* Let Swiper handle flexbox – only adjust slide sizing */
+.swiper-slide {
+  width: 300px;   /* fixed card width */
+  max-width: 90vw; /* responsive on mobile */
+}
+
+/* Card styling inside each slide */
+.card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  color: var(--chocolate);
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: var(--chocolate);
+  margin-bottom: 1rem;
+}
+
+.card-content .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--raspberry);
+}
 /* External fonts and icons should be linked in your HTML, not in this CSS file */
 
 /* ===== Global Styles ===== */
@@ -264,12 +352,13 @@ header {
 }
 
 /* Updated image styling to prevent cropping */
+
 .card-img {
   background-color: white; /* or var(--cream-vanilla) */
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px; /* uniform height for all cards */
+  height: 200px; /* reduced height for compact cards */
 }
 
 .card-img img {
@@ -279,8 +368,9 @@ header {
   display: block;
 }
 
+
 .card-content {
-  padding: 1.5rem;
+  padding: 1rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -747,5 +837,70 @@ footer {
   .img-left {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+
+
+
+/* Default hidden state for scroll animation */
+.bTn {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.8s ease;
+}
+
+/* Active state when visible */
+.bTn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional stagger effect */
+.bTn:nth-child(1) { transition-delay: 0.2s; }
+.bTn:nth-child(2) { transition-delay: 0.4s; }
+.bTn:nth-child(3) { transition-delay: 0.6s; }
+.bTn:nth-child(4) { transition-delay: 0.8s; }
+.bTn:nth-child(5) { transition-delay: 1s; }
+.bTn:nth-child(6) { transition-delay: 1.2s; }
+.bTn:nth-child(7) { transition-delay: 1.4s; }
+.bTn:nth-child(8) { transition-delay: 1.6s; }
+.bTn:nth-child(9) { transition-delay: 1.8s; }
+.bTn:nth-child(10) { transition-delay: 2s; }
+
+
+/* Small devices (phones, <576px) */
+@media (max-width: 575px) {
+  header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    width: 100%;  /* stack items */
+    margin-bottom: 15px;
+  }
+}
+
+/* Medium devices (tablets, <768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .menu {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+}
+
+/* Large devices (small laptops, <992px) */
+@media (max-width: 992px) {
+  .menu {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
